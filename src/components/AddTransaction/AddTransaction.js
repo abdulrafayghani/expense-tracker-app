@@ -3,10 +3,10 @@ import './AddTransaction.css'
 import { TransContext } from '../../context/TransContext'
 
 export const AddTransaction = () => {
-    let { addTransaction } = useContext(TransContext)
+    const { addTransaction } = useContext(TransContext)
 
-    let [newDesc, setDesc] = useState(" ")
-    let [newAmount, setAmount] = useState(0)
+    const [newDesc, setDesc] = useState("")
+    const [newAmount, setAmount] = useState("") 
 
     const handleEdition = (event) =>{
         event.preventDefault()
@@ -15,6 +15,8 @@ export const AddTransaction = () => {
             amount: Number(newAmount),
             desc: newDesc
         })
+        setDesc("")
+        setAmount("")
 
     }
 
@@ -27,13 +29,13 @@ export const AddTransaction = () => {
                 <label>
                     Enter Discription
                     <br/>
-                    <input type='text'onChange={(ev)=>{setDesc(ev.target.value)}} placeholder='Enter Description' required/>
+                    <input type='text' onChange={(ev)=>{setDesc(ev.target.value)}} value={newDesc} placeholder='Enter Description' required/>
                 </label>
                 <br/>
                 <label>
                     Enter Amount
                     <br/>
-                    <input type='number' onChange={(ev)=>{setAmount(ev.target.value)}} placeholder='Enter Amount' required/>
+                    <input type='number' onChange={(ev)=>{setAmount(ev.target.value)}} value={newAmount} placeholder='Enter Amount' required/>
                 </label>
                 <br/>
                 <input  className="btn" type='submit' value='Add Transaction'/>

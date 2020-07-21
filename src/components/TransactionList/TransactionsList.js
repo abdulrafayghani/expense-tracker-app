@@ -3,9 +3,9 @@ import "./TransactionsList.css";
 import { TransContext } from "../../context/TransContext";
 
 export const TransactionsList = () => {
-  let { transactions, deleteTransaction } = useContext(TransContext);
-    // let sign = 0
-  // const sign = transactions.amount < 0 ? '-' : '+';
+  const { transactions, deleteTransaction } = useContext(TransContext);
+  // let sign = ''
+    // const sign = transactions.amount < 0 ? '+' : '-';
 
   return (
     <div>
